@@ -15,5 +15,12 @@ function enuCoordinates = eciToEnu(eciCoordinates, observerLatitude, observerLon
     R = R2 * R1;
 
     % Apply the rotation to convert from ECI to ENU
-    enuCoordinates = R * eciCoordinates';
+    %enuCoordinates = R * eciCoordinates';
+
+    ECEFtoENUmatrix= [
+        -sin(observerLongitude), cos(observerLongitude), 0;
+        -cos(observerLongitude)*sin(observerLatitude), -sin(observerLongitude)*sin(observerLatitude), cos(observerLatitude);
+        cos(observerLongitude)*cos(observerLatitude), sin(observerLongitude)*cos(observerLatitude), sin(observerLatitude)
+        ];
+    enuCoordinates = ECEFtoENUmatrix * eciCoordinates';
 end
