@@ -21,6 +21,7 @@ nSat       = 4;       % Number of satellites
 
 % 1. GEOCENTRIC SATELLITE COORDINATES
 spherCoordECEF = transformToSphericalCoord(coordECEF);
+plotSatelliteDistances(spherCoordECEF,time);
 
 % 2. SATELLITE GROUND TRACKS IN THE GEOCENTRIC TERRESTRIAL REFERENCE FRAME (TRF) 
 plotGroundTrack(spherCoordECEF);

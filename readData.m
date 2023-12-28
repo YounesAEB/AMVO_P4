@@ -2,7 +2,8 @@ function [coordECEF,time] = readData(epoch_bday,window,rate,nSat)
 
 data  = readmatrix("SATPVT.txt");
 start = find(data(:,2)==epoch_bday);
-data  = data(start(1):start(1)+(window/rate)*nSat-1,:);
+% data  = data(start(1):start(1)+(window/rate)*nSat-1,:);
+data  = data(start(1):start(1)+(window/rate)*nSat+3,:);
 
 data1 = zeros(size(data,1)/4,size(data,2)-1);
 data2 = zeros(size(data,1)/4,size(data,2)-1);
