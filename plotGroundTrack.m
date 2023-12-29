@@ -17,6 +17,4 @@ grid minor;
 box on;
 hold off;
 
-% Orbital periods for ground track repetition
-
 end

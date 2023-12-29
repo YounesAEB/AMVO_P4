@@ -1,6 +1,4 @@
 function Z = computeNumSatsOnSight(coordECEF,globalGrid)
-
-satellitesOnSight = zeros(size(coordECEF,1),1); % Array for ESEIAAT location
 satellitesInView  = zeros(size(coordECEF,1),4); % Matrix for the whole planet
 %v = VideoWriter("onSightSat1.avi");
 %open(v)
@@ -15,9 +13,7 @@ for i=1:180/5
         number_grid(i,j) = numSatsOnSight;
     end
 end
-    coordESEIAAT = getESEIAATCoordinates();
-    satellitesOnSight(t,:) = computeSatellitesOnSight(t,coordESEIAAT(:,1),coordESEIAAT(:,2),coordESEIAAT(:,3),coordECEF);
-
+    
 % Video generator
 %X = globalGrid_polar(:,:,3);
 %Y = globalGrid_polar(:,:,2);
