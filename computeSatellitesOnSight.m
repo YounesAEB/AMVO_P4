@@ -12,7 +12,7 @@ elevation(1,2)    = computeElevation(upVector,satelliteVector(:,:,2));
 elevation(1,3)    = computeElevation(upVector,satelliteVector(:,:,3));
 elevation(1,4)    = computeElevation(upVector,satelliteVector(:,:,4));
 
-if (elevation(1,1))<=5
+if (elevation(1,1))<=85
     number1 = 1;
 end
 if (elevation(1,2))<=85
@@ -24,5 +24,5 @@ end
 if (elevation(1,4))<=85
     number4 = 1;
 end
-numSatsOnSight = number1 ;%+ number2 + number3 + number4;
+numSatsOnSight = number1 + number2 + number3 + number4;
 end
