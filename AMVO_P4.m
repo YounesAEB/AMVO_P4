@@ -21,21 +21,21 @@ nSat       = 4;       % Number of satellites
 
 % 1. GEOCENTRIC SATELLITE COORDINATES
 spherCoordECEF = transformToSphericalCoord(coordECEF);
-plotSatelliteDistances(spherCoordECEF,time);
+%plotSatelliteDistances(spherCoordECEF,time);
 
 % 2. SATELLITE GROUND TRACKS IN THE GEOCENTRIC TERRESTRIAL REFERENCE FRAME (TRF) 
-plotGroundTrack(spherCoordECEF);
-plot3DPathsECEF(coordECEF); % Este gráfico no tiene sentido
-% plotDistanceToEarthCenter(time,spherCoordECEF);
-timeTaken = findGroundTrackPeriod(spherCoordECEF,time);
+%plotGroundTrack(spherCoordECEF);
+%plot3DPathsECEF(coordECEF); % Este gráfico no tiene sentido
+%plotDistanceToEarthCenter(time,spherCoordECEF);
+%timeTaken = findGroundTrackPeriod(spherCoordECEF,time);
 
 
 % 3. ASSESSING THE CONSTELLATION COVERING IN THE TRF
 globalGrid = computeGlobalGrid();
 Z = computeNumSatsOnSight(coordECEF,globalGrid);
-satESEIAAT = computeNumSatsESEIAAT(coordECEF);
-plotEarthSurfaceWithSeenSatellites(globalGrid,Z,coordECEF);
-plotNumSatEvolutionESEIAAT(satESEIAAT,time);
+%satESEIAAT = computeNumSatsESEIAAT(coordECEF);
+%plotEarthSurfaceWithSeenSatellites(globalGrid,Z,coordECEF);
+%plotNumSatEvolutionESEIAAT(satESEIAAT,time);
 
 % 4. Satellite ground tracks in the geocentric Celestial Reference Frame (CRF)
 coordCRF = transformToCRFCoord(date,time,coordECEF);
@@ -44,11 +44,9 @@ plotCoordCRF(coordCRF,globalGrid);
 plotSpherCoordCRF(spherCoordCRF);
 
 
-%% QUEDA ESTE GRÁFICO QUE NO SÉ COMO VA
-% 
-% % Evolution of the number of satellites on sight from eseiaat
-% figure
-% hold on
-% plot(data1(:,1)-data1(1,1),satellitesOnSight);
-% hold off
-%}
+% CODE TO PRINT THE FIGURES IN PDF FORMAT
+%     set(gcf, 'Units', 'Centimeters');
+%     pos = get(gcf, 'Position');
+%     set(gcf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+%         'PaperSize',[pos(3), pos(4)]);
+%     print(gcf, 'McrVSalpha', '-dpdf', '-r0'); % incrementar '-r0' resolución 

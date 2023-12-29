@@ -5,9 +5,10 @@ set(groot,'defaultLegendInterpreter','latex');
 
 % Distance from the earth center
 distance = spherCoordECEF(:,1,:);
+time = time/3600;
 figure
 hold on
-ss = load('time.mat');
+%ss = load('time.mat');
 
 plot(time(:,1)-time(1,1),distance(:,1,1)/10^3);
 plot(time(:,1)-time(1,1),distance(:,1,2)/10^3);
