@@ -13,7 +13,7 @@ set(groot,'defaultLegendInterpreter','latex');
 date       = [3,12];  % Birthday date in format [day, month]
 rate       = 600;     % Seconds between satellite data
 epoch_bday = dateToSecondsSinceEpoch(date);
-window     = 3*24*3600; % Time window in seconds, 3 days
+window     = 13*24*3600; % Time window in seconds, 3 days
 nSat       = 4;       % Number of satellites
 
 % DATA LECTURE
@@ -26,7 +26,9 @@ plotSatelliteDistances(spherCoordECEF,time);
 % 2. SATELLITE GROUND TRACKS IN THE GEOCENTRIC TERRESTRIAL REFERENCE FRAME (TRF) 
 plotGroundTrack(spherCoordECEF);
 plot3DPathsECEF(coordECEF); % Este gráfico no tiene sentido
-plotDistanceToEarthCenter(time,spherCoordECEF);
+% plotDistanceToEarthCenter(time,spherCoordECEF);
+timeTaken = findGroundTrackPeriod(spherCoordECEF,time);
+
 
 % 3. ASSESSING THE CONSTELLATION COVERING IN THE TRF
 globalGrid = computeGlobalGrid();
