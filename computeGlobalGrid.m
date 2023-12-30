@@ -1,11 +1,12 @@
-function globalGrid = computeGlobalGrid()
+function [globalGrid,globalGrid_polar] = computeGlobalGrid()
 
-globalGrid_polar = zeros(180/5,360/5,3);
-for i=1:180/5+1
-    for j=1:360/5+1
+
+globalGrid_polar = zeros(180+1,360+1,3);
+for i=1:180+1
+    for j=1:360+1
         globalGrid_polar(i,j,1) = 6371*10^3;       % Earth radius
-        globalGrid_polar(i,j,2) = 87.5 - (i-1)*5;  % Latitude
-        globalGrid_polar(i,j,3) =-177.5 + (j-1)*5; % Longitude
+        globalGrid_polar(i,j,2) = 89.5 - (i-1);  % Latitude
+        globalGrid_polar(i,j,3) =-179.5 + (j-1); % Longitude
     end
 end
 

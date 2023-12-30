@@ -12,7 +12,8 @@ set(groot,'defaultLegendInterpreter','latex');
 % DATA DEFINITION
 date       = [3,12];  % Birthday date in format [day, month]
 rate       = 600;     % Seconds between satellite data
-epoch_bday = dateToSecondsSinceEpoch(date);
+% epoch_bday = dateToSecondsSinceEpoch(date);
+epoch_bday = 0;
 window     = 3*24*3600; % Time window in seconds, 3 days
 nSat       = 4;       % Number of satellites
 
@@ -31,11 +32,12 @@ spherCoordECEF = transformToSphericalCoord(coordECEF);
 
 
 % 3. ASSESSING THE CONSTELLATION COVERING IN THE TRF
-globalGrid = computeGlobalGrid();
-Z = computeNumSatsOnSight(coordECEF,globalGrid);
-%satESEIAAT = computeNumSatsESEIAAT(coordECEF);
-%plotEarthSurfaceWithSeenSatellites(globalGrid,Z,coordECEF);
-%plotNumSatEvolutionESEIAAT(satESEIAAT,time);
+
+[globalGrid,globalGrid_polar] = computeGlobalGrid();
+[Z,Z_avg] = computeNumSatsOnSight(coordECEF,spherCoordECEF,globalGrid,globalGrid_polar);
+satESEIAAT = computeNumSatsESEIAAT(coordECEF);
+plotEarthSurfaceWithSeenSatellites(globalGrid,Z,coordECEF);
+plotNumSatEvolutionESEIAAT(satESEIAAT,time);
 
 % 4. Satellite ground tracks in the geocentric Celestial Reference Frame (CRF)
 coordCRF = transformToCRFCoord(date,time,coordECEF);
