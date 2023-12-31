@@ -16,4 +16,7 @@ grid minor;
 box on;
 xlim([0,72])
 hold off;
+legend('Satellite 1','Satellite 2','Satellite 3','Satellite 4');
+xlabel("Time ($h$)")
+ylabel("Distance ($m$)")
 end
