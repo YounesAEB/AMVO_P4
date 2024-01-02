@@ -15,7 +15,6 @@ rate       = 600;     % Seconds between satellite data
 epoch_bday = dateToSecondsSinceEpoch(date);
 % epoch_bday = 0;
 window     = 868800; % Time window in seconds
-
 nSat       = 4;       % Number of satellites
 
 % DATA LECTURE
